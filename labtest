@@ -1,0 +1,28 @@
+import numpy as np 
+import matplotlib.pyplot as plt 
+import scipy.signal as signal
+vehicle_count1=np.random.randint(1,50,1440)
+plt.plot(vehicle_count1)
+vehicle_count2=np.random.randint(1,50,1440)
+vehicle_count=vehicle_count1+vehicle_count2
+plt.plot(vehicle_count)
+fs=2
+c=0.3
+a,b=signal.butter(c,fs,btype='lowpass')
+smooth=signal.filtfilt(a,b,vehicle_count)
+x=range(1440)
+plt.plot(x,smooth)
+plt.show()
+hour=np.random.randint(1,60,60)
+def hourly_avg():
+    for j in range(12):
+         for i in range(60):
+                hour[i]=vehicle_count[i+j*60]
+                avg_1=np.mean(hour)
+    new[j]=avg_1         
+hourly_avg()
+def heavy_period():
+        
+        for i in range(15) 
+        if vehicle_count[i]>120
+        return True 
